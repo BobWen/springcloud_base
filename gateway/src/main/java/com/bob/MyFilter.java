@@ -34,6 +34,10 @@ public class MyFilter extends ZuulFilter {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
         Object accessToken = request.getParameter("token");
+        String url = request.getRequestURL().toString();
+        if (url.contains("userapi") ||url.contains("swagger")){
+            return null;
+        }
         if(accessToken == null){
           ctx.setSendZuulResponse(false);
           ctx.setResponseStatusCode(401);
