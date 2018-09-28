@@ -12,6 +12,7 @@
         <module>registry_center</module>
         <module>user_service</module>
         <module>user_service_feign</module>
+        <module>common</module>
     </modules>
     <packaging>pom</packaging>
 
